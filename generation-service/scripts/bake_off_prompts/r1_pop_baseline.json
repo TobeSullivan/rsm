@@ -1,0 +1,22 @@
+{
+	"_meta": {
+		"round": "r1_pop_baseline",
+		"description": "Round 1 pop baseline. Same content to all models, syntax tuned per model. Locked 2026-05-16.",
+		"output_subdir": "r1-pop"
+	},
+	"captions": {
+		"ace_step": "Modern pop track, 108 BPM, sparse R&B-influenced verses with finger snaps and muted electric piano, building to anthemic chorus with stacked vocal harmonies and four-on-the-floor kick drum, female lead vocals with breathy lower register and confident chorus belt, bittersweet but resilient mood, polished radio production with sidechain compression, warm bass, bright top-end",
+		"diffrhythm": "modern pop, 108 BPM, sparse R&B-influenced verse, finger snaps, muted electric piano, anthemic chorus, stacked vocal harmonies, four-on-the-floor kick drum, female lead vocals, breathy lower register, confident chorus belt, bittersweet but resilient, polished radio production, sidechain compression, warm bass, bright top-end",
+		"songgeneration": "Modern pop track at 108 BPM. Sparse R&B-influenced verses with finger snaps and muted electric piano, building to anthemic chorus with stacked vocal harmonies and four-on-the-floor kick drum. Female lead vocals with breathy lower register and confident chorus belt. Bittersweet but resilient mood. Polished radio production with sidechain compression, warm bass, and bright top-end.",
+		"suno": "Modern pop, 108 BPM, R&B-influenced verse, anthemic chorus, female vocals, breathy verse, chorus belt, stacked harmonies, finger snaps, muted electric piano, four-on-the-floor kick, sidechain compression, bittersweet resilient mood, polished radio production, warm bass, bright top-end"
+	},
+	"lyrics": "[Intro]\n\n[Verse 1]\nI keep your hoodie in the bottom drawer\nHalf because I miss you and half because I won\nYou told me I'd come crawling back by Christmas\nIt's January now and I'm still doing fine\n\n[Pre-Chorus]\nEvery song they play on the radio\nUsed to wreck me, used to slow me down\n\n[Chorus]\nBut I'm not the girl you left behind\nI'm not the girl you thought I'd be\nI built a life you'd never recognize\nAnd it's better than the one you promised me\nI'm not the girl you left behind\nI'm not the girl, I'm not the girl\n\n[Verse 2]\nMy sister asks if I've been sleeping better\nI tell her yeah, then sleep right through her call\nYour mother sent a card to my apartment\nThe new one, the one you've never even seen\n\n[Chorus]\nBut I'm not the girl you left behind\nI'm not the girl you thought I'd be\nI built a life you'd never recognize\nAnd it's better than the one you promised me\nI'm not the girl you left behind\nI'm not the girl, I'm not the girl",
+	"generation": {
+		"bpm": 108,
+		"duration_seconds": 90.0,
+		"vocal_language": "en",
+		"instrumental": false,
+		"keyscale": "",
+		"seeds": [1, 2, 3]
+	}
+}
