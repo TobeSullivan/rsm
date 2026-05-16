@@ -1,12 +1,10 @@
 ﻿"""
-Rockband Simulator/Manager - Generation Prototype (Slice 1)
+Rockband Simulator/Manager - Generation Prototype (Phase 2a)
 
-Single-stage: pre-defined caption + lyrics -> DiT renders audio.
+Pipeline: caption + lyrics -> LM generates audio codes -> DiT renders audio.
 
-NOTE: create_sample() (LM-generated lyrics from a natural-language query) needs
-correct LLMHandler initialization, which we have not figured out yet. Deferred
-to slice 3 - probably a checkpoint path issue. For now we hardcode lyrics so
-we can validate that vocals work at all.
+Phase 2a goal: get LLMHandler.initialize() working so `thinking=True` actually
+produces 5Hz audio codes and vocals render real phonemes instead of "oohs."
 
 Adjust the CONFIG block below to change lyrics, duration, or model variant.
 """
@@ -33,8 +31,8 @@ DURATION_SECONDS = 30
 
 DEVICE = "cuda"                          # "cuda" | "mps" | "cpu"
 DIT_CONFIG = "acestep-v15-turbo"         # fast variant, 8-step diffusion
-LM_MODEL = "acestep-5Hz-lm-0.6B"         # smallest LM, fastest startup
-LM_BACKEND = "pytorch"                   # "vllm" | "pytorch" - pytorch is more portable on Windows
+LM_MODEL = "acestep-5Hz-lm-1.7B"         # matches what's downloaded in ./checkpoints/
+LM_BACKEND = "pytorch"                   # "vllm" | "pytorch" - pytorch is portable on Windows
 AUDIO_FORMAT = "flac"                    # lossless so we hear what the model actually produced
 
 # Turbo-specific recommendations from ACE-Step docs
@@ -43,7 +41,7 @@ SHIFT = 3.0                              # Recommended for turbo models
 
 # Paths
 SERVICE_ROOT = Path(__file__).resolve().parents[2]   # generation-service/
-CHECKPOINT_DIR = Path.home() / ".cache" / "huggingface" / "hub"
+CHECKPOINT_DIR = SERVICE_ROOT / "checkpoints"        # local cache for ACE-Step models
 OUTPUT_DIR = SERVICE_ROOT / "output"
 
 # ─── MAIN ────────────────────────────────────────────────────────────────
@@ -57,9 +55,34 @@ def main() -> None:
     log = logging.getLogger("rsm-gen")
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    log.info("SERVICE_ROOT: %s", SERVICE_ROOT)
     log.info("Output directory: %s", OUTPUT_DIR)
+    log.info("Checkpoint directory: %s", CHECKPOINT_DIR)
 
-    # ─── Initialize handlers ─────────────────────────────────────────────
+    # ─── Verify checkpoint dir before init ──────────────────────────────
+    if not CHECKPOINT_DIR.exists():
+        log.error("Checkpoint directory does not exist: %s", CHECKPOINT_DIR)
+        return
+
+    log.info("Contents of checkpoint dir:")
+    for entry in sorted(CHECKPOINT_DIR.iterdir()):
+        log.info("  - %s%s", entry.name, "/" if entry.is_dir() else "")
+
+    lm_model_path = CHECKPOINT_DIR / LM_MODEL
+    if not lm_model_path.exists():
+        log.error("LM model directory not found: %s", lm_model_path)
+        log.error("Expected to find subdir %r inside %s", LM_MODEL, CHECKPOINT_DIR)
+        return
+
+    log.info("LM model dir verified: %s", lm_model_path)
+    log.info("Contents of LM model dir:")
+    for entry in sorted(lm_model_path.iterdir()):
+        if entry.is_file():
+            log.info("  - %s (%d bytes)", entry.name, entry.stat().st_size)
+        else:
+            log.info("  - %s/", entry.name)
+
+    # ─── Initialize DiT handler ─────────────────────────────────────────
     log.info("Initializing ACE-Step DiT handler (device=%s, config=%s)...", DEVICE, DIT_CONFIG)
     dit_handler = AceStepHandler()
     dit_handler.initialize_service(
@@ -67,15 +90,36 @@ def main() -> None:
         config_path=DIT_CONFIG,
         device=DEVICE,
     )
+    log.info("DiT handler initialized.")
 
+    # ─── Initialize LLM handler ─────────────────────────────────────────
     log.info("Initializing LLM handler (model=%s, backend=%s)...", LM_MODEL, LM_BACKEND)
     llm_handler = LLMHandler()
-    llm_handler.initialize(
-        checkpoint_dir=str(CHECKPOINT_DIR),
-        lm_model_path=LM_MODEL,
-        backend=LM_BACKEND,
-        device=DEVICE,
-    )
+
+    try:
+        init_result = llm_handler.initialize(
+            checkpoint_dir=str(CHECKPOINT_DIR),
+            lm_model_path=LM_MODEL,
+            backend=LM_BACKEND,
+            device=DEVICE,
+        )
+        log.info("LLMHandler.initialize() returned: %r", init_result)
+    except Exception as exc:
+        log.exception("LLMHandler.initialize() raised an exception: %s", exc)
+        return
+
+    # Introspect handler state. We do not know what attributes initialize() sets
+    # or clears, so dump everything public and non-callable. If init silently
+    # failed, the missing/None values will tell us where.
+    log.info("LLM handler attributes after init:")
+    for attr in sorted(a for a in dir(llm_handler) if not a.startswith("_")):
+        try:
+            value = getattr(llm_handler, attr)
+            if callable(value):
+                continue
+            log.info("  %s = %r", attr, value)
+        except Exception as exc:
+            log.info("  %s = <error reading: %s>", attr, exc)
 
     # ─── Generate audio ──────────────────────────────────────────────────
     log.info("Generating %ds audio: %r", DURATION_SECONDS, CAPTION)
@@ -114,13 +158,24 @@ def main() -> None:
 
     times = result.extra_outputs.get("time_costs", {})
     if times:
+        lm_p1 = times.get("lm_phase1_time", 0)
+        lm_p2 = times.get("lm_phase2_time", 0)
         log.info(
             "Time costs - LM p1: %.1fs | LM p2: %.1fs | DiT: %.1fs | total: %.1fs",
-            times.get("lm_phase1_time", 0),
-            times.get("lm_phase2_time", 0),
+            lm_p1,
+            lm_p2,
             times.get("dit_total_time_cost", 0),
             times.get("pipeline_total_time", 0),
         )
+        if lm_p1 < 0.1 and lm_p2 < 0.1:
+            log.warning(
+                "LM phase times are ~0s. LM likely did not run despite thinking=True. "
+                "Vocals will sound like 'oohs' rather than real words."
+            )
+        else:
+            log.info("LM ran. Audio codes were generated. Vocals should have phonemes.")
+    else:
+        log.warning("No time_costs in extra_outputs. Could not verify LM ran.")
 
     log.info("Done. Listen to the output in %s", OUTPUT_DIR)
 
