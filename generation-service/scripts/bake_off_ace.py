@@ -1,12 +1,12 @@
 """
-Phase 2c — Music Model Bake-off — ACE-Step harness (Turbo + XL).
+Phase 2c — Music Model Bake-off — ACE-Step harness (Turbo + XL Turbo/SFT/Base).
 
 Headless. Generates N seeds for a single prompt file, writes audio + a
-manifest.json that pairs cleanly with rsm-bakeoff-scorecard.xlsx rows.
+manifest.json that pairs cleanly with rsmbakeoffscorecard.xlsx rows.
 
 Smallest viable harness:
-	- One script per model family. ACE-Step Turbo + XL share this script
-	  (same pipeline, --variant swaps checkpoint).
+	- One script per model family. All four ACE-Step variants share this script
+	  (same pipeline, --variant swaps checkpoint + inference defaults).
 	- DiffRhythm 2 and SongGeneration v2 get their own scripts later.
 	- No "model-agnostic harness" abstraction. Refactor common patterns
 	  AFTER they prove common.
@@ -15,7 +15,6 @@ Apples-to-apples with the lab:
 	- Same handler init pattern as scripts/lab_v0.py
 	- Same GenerationParams contract (split-call: thinking=True,
 	  use_cot_*=False so user-edited caption/lyrics/meta are respected)
-	- Same Turbo defaults (inference_steps=8, shift=3.0, infer_method=ode)
 	- audio_format="flac" (matches lab; lossless beats wav for scoring)
 
 Apples-to-apples across models:
@@ -23,9 +22,20 @@ Apples-to-apples across models:
 	- Same seeds [1, 2, 3] across every model
 	- Same content in the caption; syntax tuned per model in the JSON
 
+Variant inference defaults (verified against ACE-Step docs/en/INFERENCE.md):
+	- Distilled (turbo, xl-turbo): 8 inference steps, shift=3.0.
+	  guidance_scale is documented as ignored for turbo models; we still
+	  set the doc default 7.0 for consistency.
+	- Non-distilled (xl-sft, xl-base): 50 inference steps (mid-high of the
+	  doc-recommended 32-64 range; community settles around 46 for stable
+	  output). guidance_scale=7.0 (doc default; typical range 5.0-9.0).
+
 Run from <service-root>:
 	uv run scripts/bake_off_ace.py --variant turbo
-	uv run scripts/bake_off_ace.py --variant xl --prompt scripts/bake_off_prompts/r1_pop_baseline.json
+	uv run scripts/bake_off_ace.py --variant xl-turbo
+	uv run scripts/bake_off_ace.py --variant xl-sft
+	uv run scripts/bake_off_ace.py --variant xl-base
+	uv run scripts/bake_off_ace.py --variant xl-base --prompt scripts/bake_off_prompts/r1_pop_baseline.json
 
 Output:
 	outputs/r1-pop/
@@ -33,6 +43,7 @@ Output:
 		ace-step-turbo_seed2.flac
 		ace-step-turbo_seed3.flac
 		manifest_ace-step-turbo.json
+	(and equivalents for ace-step-xl-turbo, ace-step-xl-sft, ace-step-xl-base)
 """
 
 from __future__ import annotations
@@ -56,33 +67,46 @@ OUTPUT_ROOT = SERVICE_ROOT / "outputs"
 DEFAULT_PROMPT_FILE = SERVICE_ROOT / "scripts" / "bake_off_prompts" / "r1_pop_baseline.json"
 
 LM_MODEL = "acestep-5Hz-lm-1.7B"
-LM_BACKEND = "pytorch"  # pytorch portable across Windows/Mac; vllm is Linux-first
+LM_BACKEND = "pytorch"  # pytorch portable across Windows/Mac; vllm is Linux-first.
+                        # NOTE: ACE-Step also supports an "mlx" LM backend on Apple
+                        # Silicon which may give additional speedup on Mac. Left as
+                        # pytorch for now since current Mac wall-clock is acceptable;
+                        # revisit if non-distilled XL feels too slow.
 
-# Per-variant DiT config strings.
-# Turbo: confirmed by lab v0.2 (scripts/lab_v0.py uses "acestep-v15-turbo").
-# XL: best guess — needs verification against ACE-Step docs when you first
-# run XL on the M4 Max. If wrong, fix here and the rest of the harness is fine.
+# Per-variant DiT config strings. Verified against the ACE-Step 1.5 README
+# (Model Zoo) and docs/en/INFERENCE.md.
 DIT_CONFIGS = {
-	"turbo": "acestep-v15-turbo",
-	"xl": "acestep-v15",  # TODO verify XL config name against ACE-Step docs
+	"turbo":    "acestep-v15-turbo",
+	"xl-turbo": "acestep-v15-xl-turbo",
+	"xl-sft":   "acestep-v15-xl-sft",
+	"xl-base":  "acestep-v15-xl-base",
 }
 
-# Per-variant inference defaults.
-# Turbo defaults match the lab (and ACE-Step docs).
-# XL defaults are placeholders — standard ACE-Step typically uses 30+ steps and
-# different shift. Verify when running XL.
+# Per-variant inference defaults. See module docstring for rationale.
 VARIANT_DEFAULTS = {
 	"turbo": {
 		"inference_steps": 8,
 		"shift": 3.0,
 		"infer_method": "ode",
-		"guidance_scale": 15.0,
+		"guidance_scale": 7.0,  # Ignored by turbo per ACE-Step docs; doc default.
 	},
-	"xl": {
-		"inference_steps": 30,         # TODO verify XL default inference_steps
-		"shift": 3.0,                  # TODO verify XL default shift
-		"infer_method": "ode",         # TODO verify XL default infer_method
-		"guidance_scale": 15.0,        # TODO verify XL default guidance_scale
+	"xl-turbo": {
+		"inference_steps": 8,
+		"shift": 3.0,
+		"infer_method": "ode",
+		"guidance_scale": 7.0,  # Ignored by turbo per ACE-Step docs; doc default.
+	},
+	"xl-sft": {
+		"inference_steps": 50,
+		"shift": 3.0,
+		"infer_method": "ode",
+		"guidance_scale": 7.0,
+	},
+	"xl-base": {
+		"inference_steps": 50,
+		"shift": 3.0,
+		"infer_method": "ode",
+		"guidance_scale": 7.0,
 	},
 }
 
@@ -267,10 +291,10 @@ def run_one_seed(
 
 # --- Main ------------------------------------------------------------------
 def main() -> None:
-	ap = argparse.ArgumentParser(description="ACE-Step bake-off harness (Turbo + XL).")
+	ap = argparse.ArgumentParser(description="ACE-Step bake-off harness (Turbo + XL Turbo/SFT/Base).")
 	ap.add_argument(
 		"--variant",
-		choices=["turbo", "xl"],
+		choices=["turbo", "xl-turbo", "xl-sft", "xl-base"],
 		default="turbo",
 		help="Which ACE-Step checkpoint to load. Default: turbo.",
 	)
