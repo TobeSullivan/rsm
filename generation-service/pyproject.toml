@@ -1,0 +1,19 @@
+[project]
+name = "rsm-gen"
+version = "0.1.0"
+description = "Local music generation service for Rockband Simulator/Manager"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ace-step @ git+https://github.com/ace-step/ACE-Step-1.5.git",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rsm_gen"]
