@@ -45,3 +45,5 @@ Thumbs.db
 .cache/
 .env
 .env.*
+
+diffrhythm2/
