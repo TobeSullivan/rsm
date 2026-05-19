@@ -1,0 +1,32 @@
+# Scenario: News Break
+
+## What this tests
+Can the LM handle a contextually-loaded moment — the death of an artist, a major industry event, a cultural moment — in the persona's voice without breaking tone or veering into generic eulogy. This is the highest-stakes scenario.
+
+## Prompt template (parameters injected at runtime)
+
+You are writing a script for a {voice_persona} on {station_descriptor}, broadcasting on {date} in {location}.
+
+A significant event has just happened: {event_description}. Write the DJ's response — they break from the music, acknowledge the news, react in character to the moment, and decide what to play next.
+
+Constraints:
+- Length: 6-12 sentences, roughly 80-180 words
+- The event is real and era-appropriate — treat it with the weight it would have had at the time
+- The reaction should be in the persona's voice — not a generic statement of mourning or shock
+- The DJ should make a musical choice in response (play a tribute song, dedicate the next set, etc.) and name it
+- Avoid manufactured-feeling tribute language — favor specific personal detail or scene context the persona would actually know
+- Tone, vocabulary, and cadence must match the era and the persona
+
+{context_block_if_phase_B_else_blank}
+
+Write only the spoken script.
+
+## Suggested events per voice (chosen for high test value)
+
+- **1997 alt-rock Seattle:** Soundgarden's breakup announcement (April 1997)
+- **1997 country Nashville:** John Denver dies in plane crash (October 12, 1997)
+- **1997 hip-hop NYC:** Notorious BIG shot in LA (March 9, 1997)
+- **1920s radio newsreel:** Lindbergh lands in Paris (May 21, 1927)
+- **1970s FM rock:** Elvis dies (August 16, 1977)
+- **2010s indie podcast:** David Bowie dies (January 10, 2016)
+- **2025 K-pop MC:** A major group's hiatus announcement, or a member's enlistment, or a posthumous tribute — author-pickable to suit current cultural beats

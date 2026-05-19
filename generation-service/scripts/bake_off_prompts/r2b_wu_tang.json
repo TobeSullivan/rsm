@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "round": "r2b_wu_tang",
+    "description": "R2B artist-name diagnostic: Wu-Tang Clan (East Coast hip-hop). Artist named in caption. 1 seed. Locked 2026-05-17.",
+    "output_subdir": "r2b-wu_tang",
+    "test_type": "artist_name",
+    "artist_display": "Wu-Tang Clan",
+    "artist_genre": "East Coast hip-hop",
+    "artist_difficulty": "Very Hard"
+  },
+  "captions": {
+    "ace_step": "East Coast hip-hop song in the style of Wu-Tang Clan, 92 BPM, dusty soul sample loop, sparse piano stab, boom-bap drums, multiple male rapper voices with distinct flows, kung fu sample interludes, gritty street mood, lo-fi sample-based production",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nConcrete teaching mathematics that the schoolbooks never had\nBrother on the corner cooking up a different kind of math\nSirens in the distance like an alarm clock for the kingdom\nEvery rooftop holding council, every alley holding court\n\n[Chorus]\nWe the ones the city built around\nWe the ones the city tried to drown\nWe the ones still standing in the sound\nAnd we ain't going nowhere right now\n\n[Verse]\nPops told me real recognize real before I knew his real name\nMama held the family on a wage that wouldn't fit the frame\nEvery cousin got a story that the news ain't never telling\nEvery block remembers names that nobody else is spelling\n\n[Chorus]\nWe the ones the city built around\nWe the ones the city tried to drown\nWe the ones still standing in the sound\nAnd we ain't going nowhere right now",
+  "generation": {
+    "bpm": 92,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1
+    ]
+  }
+}

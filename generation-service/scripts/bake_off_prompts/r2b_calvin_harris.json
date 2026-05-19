@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "round": "r2b_calvin_harris",
+    "description": "R2B artist-name diagnostic: Calvin Harris (Stadium EDM). Artist named in caption. 1 seed. Locked 2026-05-17.",
+    "output_subdir": "r2b-calvin_harris",
+    "test_type": "artist_name",
+    "artist_display": "Calvin Harris",
+    "artist_genre": "Stadium EDM",
+    "artist_difficulty": "Easy-Medium"
+  },
+  "captions": {
+    "ace_step": "Stadium EDM track in the style of Calvin Harris, 128 BPM, four-on-the-floor kick, supersaw synth lead, sidechain compression, plucked synth arpeggio, female pop vocal feature with processed harmonies, anthemic build and drop, euphoric festival mood, polished arena production",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nFriday night the city's just beginning\nYou and me we move like we already won\nHold my hand and don't pretend you're listening\nTonight the only word is gone\n\n[Pre-Chorus]\nWe can lose the morning we can lose the year\nEverything I needed everything is here\n\n[Chorus]\nHold on hold on hold on\nWe don't need to know where we're going\nHold on hold on hold on\nThe whole world's right here where we're standing\nHold on hold on hold on\nThis is everything I waited for\nHold on hold on\nDon't let go don't let go\n\n[Verse]\nSunrise will arrive without permission\nConcrete is forgiving when you dance\nEvery face I love is in the building\nTonight the only word is yes\n\n[Chorus]\nHold on hold on hold on\nWe don't need to know where we're going\nHold on hold on hold on\nThe whole world's right here where we're standing",
+  "generation": {
+    "bpm": 128,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1
+    ]
+  }
+}

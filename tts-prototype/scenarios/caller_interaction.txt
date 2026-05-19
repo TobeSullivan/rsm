@@ -1,0 +1,22 @@
+# Scenario: Caller Interaction
+
+## What this tests
+Can the LM produce both sides of a brief on-air interaction — the DJ taking a caller, the caller speaking, the DJ responding — in a way that sounds like a real broadcast moment. Tests dialogue dynamics, persona-to-persona contrast, and improv-feel cadence.
+
+## Prompt template (parameters injected at runtime)
+
+You are writing a script for a {voice_persona} on {station_descriptor}, broadcasting on {date} in {location}.
+
+Write a brief caller interaction: the DJ takes a call from a listener. The DJ greets them, the caller says their name and asks a question or makes a request, and the DJ responds.
+
+Constraints:
+- Length: 8-14 lines of dialogue total (DJ + caller alternating), roughly 80-150 words
+- Format the script with clear speaker labels (DJ: / CALLER:)
+- The caller's question or request must be era and scene appropriate (request a song, dedicate to someone, ask about an upcoming show, comment on something the DJ said earlier)
+- The DJ should respond in character — sometimes warmly, sometimes briskly, depending on persona
+- The caller has their own voice — they're not a feed line for the DJ
+- For voices/eras where call-ins didn't exist (1920s), adapt to a read-aloud listener letter instead
+
+{context_block_if_phase_B_else_blank}
+
+Write the script with speaker labels.

@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "round": "r2a_wu_tang",
+    "description": "R2A sonic fingerprint test: Wu-Tang Clan (East Coast hip-hop, difficulty: Very Hard). No artist name in caption. 3 seeds. Locked 2026-05-17.",
+    "output_subdir": "r2a-wu_tang",
+    "test_type": "sonic_fingerprint",
+    "artist_display": "Wu-Tang Clan",
+    "artist_genre": "East Coast hip-hop",
+    "artist_difficulty": "Very Hard"
+  },
+  "captions": {
+    "ace_step": "1990s East Coast boom-bap hip-hop, 92 BPM, dusty soul sample loop with vinyl crackle, sparse upright piano stab on the two and four, raw kick-snare drum break sample with prominent hi-hat, deep upright bass under the loop, multiple male rapper voices trading verses with distinct intricate flows, occasional kung fu film sample interlude, gritty New York street narrative mood, lo-fi sample-based production with mono compression",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nConcrete teaching mathematics that the schoolbooks never had\nBrother on the corner cooking up a different kind of math\nSirens in the distance like an alarm clock for the kingdom\nEvery rooftop holding council, every alley holding court\n\n[Chorus]\nWe the ones the city built around\nWe the ones the city tried to drown\nWe the ones still standing in the sound\nAnd we ain't going nowhere right now\n\n[Verse]\nPops told me real recognize real before I knew his real name\nMama held the family on a wage that wouldn't fit the frame\nEvery cousin got a story that the news ain't never telling\nEvery block remembers names that nobody else is spelling\n\n[Chorus]\nWe the ones the city built around\nWe the ones the city tried to drown\nWe the ones still standing in the sound\nAnd we ain't going nowhere right now",
+  "generation": {
+    "bpm": 92,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+# Scenario: Cold Open
+
+## What this tests
+Can the LM open a broadcast cleanly, identify the station/show, and set tone for the audience — all in the voice of the target persona, era, and genre.
+
+## Prompt template (parameters injected at runtime)
+
+You are writing a script for a {voice_persona} on {station_descriptor}, broadcasting on {date} in {location}.
+
+Write a cold-open monologue: the DJ takes the air, identifies themselves and the station, sets the mood for the show, and transitions into the first song.
+
+Constraints:
+- Length: 6-10 sentences, roughly 80-130 words
+- This is the opening of the broadcast — no "welcome back"
+- Identify the station, frequency or call letters, and the city/market
+- Reference what's coming up tonight or this hour without giving a full schedule
+- Tone, vocabulary, and cadence must match the era and the persona — see the context block below
+- Do not invent songs or artists that didn't exist in the target era
+
+{context_block_if_phase_B_else_blank}
+
+Write only the monologue — no stage directions, no "DJ:" prefix.

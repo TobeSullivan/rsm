@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "round": "r2a_luke_combs",
+    "description": "R2A sonic fingerprint test: Luke Combs (Modern country, difficulty: Easy). No artist name in caption. 3 seeds. Locked 2026-05-17.",
+    "output_subdir": "r2a-luke_combs",
+    "test_type": "sonic_fingerprint",
+    "artist_display": "Luke Combs",
+    "artist_genre": "Modern country",
+    "artist_difficulty": "Easy"
+  },
+  "captions": {
+    "ace_step": "Modern country, 88 BPM, mid-tempo radio-friendly arrangement, strummed acoustic guitar, clean electric guitar with mild compression, pedal steel guitar fills, fiddle accents, simple kick-and-snare with brushed touches, male baritone lead vocal with slight Southern rasp, nostalgic and sincere mood, polished Nashville studio production, warm bass, present vocal mix",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nTail lights fading down the county road\nPickup empty where she used to be\nMama's wedding ring still on the dresser\nHeaven sometimes looks a lot like leaving\n\n[Pre-Chorus]\nAnd I keep telling everyone I'm alright\nTelling everybody time will heal\n\n[Chorus]\nBut the front porch swing won't swing the same\nThe kitchen radio knows her name\nI built this house with both our hands\nNow I'm sleeping in the wreckage of our plans\nShe took the dog, she took the years\nShe left me everything I can't bear\n\n[Verse]\nSister called and asked if I'd been eating\nI told her yeah, then I poured another drink\nPastor said come Sunday I should join him\nI been singing to myself a little less each week\n\n[Chorus]\nBut the front porch swing won't swing the same\nThe kitchen radio knows her name\nI built this house with both our hands\nNow I'm sleeping in the wreckage of our plans",
+  "generation": {
+    "bpm": 88,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  }
+}

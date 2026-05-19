@@ -1,0 +1,27 @@
+# Generated outputs (large, regenerable)
+generated/
+patter/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Reference audio (license-sensitive, sourced separately per voices/README.md)
+voices/*/
+!voices/README.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log

@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "round": "r2b_tool",
+    "description": "R2B artist-name diagnostic: Tool (Progressive metal). Artist named in caption. 1 seed. Locked 2026-05-17.",
+    "output_subdir": "r2b-tool",
+    "test_type": "artist_name",
+    "artist_display": "Tool",
+    "artist_genre": "Progressive metal",
+    "artist_difficulty": "Hard"
+  },
+  "captions": {
+    "ace_step": "Progressive metal song in the style of Tool, 132 BPM odd time signatures, downtuned distorted guitar, polyrhythmic palm-muted riffing, tom-heavy drumming, fretless bass, baritone male vocal alternating spoken and shouted, brooding philosophical mood, dense atmospheric production",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nCounting backwards from a number that I don't remember\nWatching shadows learn the shape of my own face\nEvery prophet selling something I already paid for\nEvery god I built is asking for my name\n\n[Chorus]\nTear it down\nBuild it again from the bones that bury us\nTear it down\nNothing sacred ever stays the way we wanted\n\n[Verse]\nMirror tells the truth in a language I keep losing\nRepetition is the only honest prayer\nI confessed to every angel and they all said the same thing\nYou were never lost you only learned to disappear\n\n[Bridge]\nStrip it all back to the silence underneath\nStrip it all back to the ringing in the deep\n\n[Chorus]\nTear it down\nBuild it again from the bones that bury us\nTear it down\nNothing sacred ever stays the way we wanted",
+  "generation": {
+    "bpm": 132,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1
+    ]
+  }
+}

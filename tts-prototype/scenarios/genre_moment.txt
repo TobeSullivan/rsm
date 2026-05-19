@@ -1,0 +1,30 @@
+# Scenario: Genre Moment
+
+## What this tests
+Can the LM produce a moment that's distinctly genre-specific — a country state-fair plug, a hip-hop mixshow hype intro, a K-pop comeback announcement, an FM rock deep-cut intro — in a way that wouldn't translate cleanly to a different genre's DJ. This is the genre-authenticity stress test.
+
+## Prompt template (parameters injected at runtime)
+
+You are writing a script for a {voice_persona} on {station_descriptor}, broadcasting on {date} in {location}.
+
+Write a genre-moment patter: a brief on-air moment that's distinctly characteristic of this genre's radio culture. The moment type depends on the genre — see suggestions below — but should be something that wouldn't fit cleanly in a different genre's DJ patter.
+
+Constraints:
+- Length: 4-10 sentences, roughly 60-130 words
+- The moment must be unmistakably this genre — if it could be lifted into a different genre's station without modification, it failed the test
+- Reference at least one era-specific genre-internal thing (an event, a name, a vocabulary item) that wouldn't make sense outside this genre
+- Tone, vocabulary, and cadence must match the era and the persona
+
+{context_block_if_phase_B_else_blank}
+
+Write only the spoken script.
+
+## Suggested moments per voice
+
+- **1997 alt-rock Seattle:** New album premiere intro for an underground Sub Pop release, or a snarky take on the post-grunge wave currently charting
+- **1997 country Nashville:** Tomorrow's state fair plug with the local Ford dealer sponsor, or a Sunday-gospel-block bridge
+- **1997 hip-hop NYC:** Funkmaster Flex-style new-single bomb-drop premiere, or a freestyle/cypher intro
+- **1920s radio newsreel:** Sponsored serial introduction or "broadcasting under the authority of the Federal Radio Commission" formality moment
+- **1970s FM rock:** Album-side announcement ("we're going to play all four sides of [album]") or themed-block setup ("an hour of British prog tonight")
+- **2010s indie podcast:** Hot take / mini-rant about a streaming-era industry trend, or a "this week we're talking about [artist]" episode framing
+- **2025 K-pop MC:** Comeback teaser reveal, music show first-place announcement, MAMA awards-style red carpet moment, or a fandom-name shoutout block

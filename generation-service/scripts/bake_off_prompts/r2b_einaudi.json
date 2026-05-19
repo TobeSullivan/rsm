@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "round": "r2b_einaudi",
+    "description": "R2B artist-name diagnostic: Ludovico Einaudi (Neoclassical piano (instrumental)). Artist named in caption. 1 seed. Locked 2026-05-17.",
+    "output_subdir": "r2b-einaudi",
+    "test_type": "artist_name",
+    "artist_display": "Ludovico Einaudi",
+    "artist_genre": "Neoclassical piano (instrumental)",
+    "artist_difficulty": "Hard (instrumental)"
+  },
+  "captions": {
+    "ace_step": "Contemporary neoclassical piano composition in the style of Ludovico Einaudi, 72 BPM, solo grand piano with intimate recording, sparse single-note motifs building into arpeggiated patterns, subtle strings underneath, melancholic introspective mood, minimalist structure, no vocals, no drums, instrumental",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Instrumental]",
+  "generation": {
+    "bpm": 72,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": true,
+    "keyscale": "",
+    "seeds": [
+      1
+    ]
+  }
+}

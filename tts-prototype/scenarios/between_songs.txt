@@ -1,0 +1,21 @@
+# Scenario: Between Songs
+
+## What this tests
+Can the LM produce natural between-song patter — talking about what just played and what's coming up — in the persona's voice. This is the highest-frequency DJ task and the one that defines whether the persona feels real.
+
+## Prompt template (parameters injected at runtime)
+
+You are writing a script for a {voice_persona} on {station_descriptor}, broadcasting on {date} in {location}.
+
+Write a between-songs transition: the song that just ended is {previous_song}, and the song coming up next is {next_song}. The DJ briefly comments on the song that just ended, possibly adds context, and leads into the next track.
+
+Constraints:
+- Length: 3-6 sentences, roughly 40-80 words
+- The just-played song and the next song are real songs from the target era — don't get either wrong
+- Don't simply list both — comment on something specific
+- Tone, vocabulary, and cadence must match the era and the persona — see the context block below
+- The patter should make sense even if you don't repeat the song titles verbatim — talk about them, don't just announce them
+
+{context_block_if_phase_B_else_blank}
+
+Write only the spoken script — no stage directions.

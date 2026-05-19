@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "round": "r2a_calvin_harris",
+    "description": "R2A sonic fingerprint test: Calvin Harris (Stadium EDM, difficulty: Easy-Medium). No artist name in caption. 3 seeds. Locked 2026-05-17.",
+    "output_subdir": "r2a-calvin_harris",
+    "test_type": "sonic_fingerprint",
+    "artist_display": "Calvin Harris",
+    "artist_genre": "Stadium EDM",
+    "artist_difficulty": "Easy-Medium"
+  },
+  "captions": {
+    "ace_step": "Stadium EDM, 128 BPM, driving four-on-the-floor kick drum, bright supersaw synth lead, plucked synth arpeggio in verses, heavy sidechain compression pumping under the kick, female pop vocal feature with bright top-end and processed harmonies, anthemic build-up with snare roll into euphoric main drop, uplifting festival energy mood, polished arena production with wide stereo imaging",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nFriday night the city's just beginning\nYou and me we move like we already won\nHold my hand and don't pretend you're listening\nTonight the only word is gone\n\n[Pre-Chorus]\nWe can lose the morning we can lose the year\nEverything I needed everything is here\n\n[Chorus]\nHold on hold on hold on\nWe don't need to know where we're going\nHold on hold on hold on\nThe whole world's right here where we're standing\nHold on hold on hold on\nThis is everything I waited for\nHold on hold on\nDon't let go don't let go\n\n[Verse]\nSunrise will arrive without permission\nConcrete is forgiving when you dance\nEvery face I love is in the building\nTonight the only word is yes\n\n[Chorus]\nHold on hold on hold on\nWe don't need to know where we're going\nHold on hold on hold on\nThe whole world's right here where we're standing",
+  "generation": {
+    "bpm": 128,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  }
+}

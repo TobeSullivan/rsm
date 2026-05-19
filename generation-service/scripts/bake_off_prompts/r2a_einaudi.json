@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "round": "r2a_einaudi",
+    "description": "R2A sonic fingerprint test: Ludovico Einaudi (Neoclassical piano (instrumental), difficulty: Hard (instrumental)). No artist name in caption. 3 seeds. Locked 2026-05-17.",
+    "output_subdir": "r2a-einaudi",
+    "test_type": "sonic_fingerprint",
+    "artist_display": "Ludovico Einaudi",
+    "artist_genre": "Neoclassical piano (instrumental)",
+    "artist_difficulty": "Hard (instrumental)"
+  },
+  "captions": {
+    "ace_step": "Contemporary neoclassical piano composition, 72 BPM, solo grand piano with intimate close-mic recording, sparse single-note motifs in the upper register building gradually into rolling arpeggiated harmonic patterns across both hands, subtle sustained string section entering quietly underneath, melancholic introspective contemplative mood, minimalist repetitive structure with slow harmonic shifts, no vocals, no drums, no bass, no percussion, pure acoustic instrumental composition",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Instrumental]",
+  "generation": {
+    "bpm": 72,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": true,
+    "keyscale": "",
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  }
+}

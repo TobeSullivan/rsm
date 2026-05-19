@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "round": "r2a_tool",
+    "description": "R2A sonic fingerprint test: Tool (Progressive metal, difficulty: Hard). No artist name in caption. 3 seeds. Locked 2026-05-17.",
+    "output_subdir": "r2a-tool",
+    "test_type": "sonic_fingerprint",
+    "artist_display": "Tool",
+    "artist_genre": "Progressive metal",
+    "artist_difficulty": "Hard"
+  },
+  "captions": {
+    "ace_step": "Progressive metal, 132 BPM in shifting odd time signatures, downtuned distorted electric guitar with palm-muted polyrhythmic riffing, complex tom-heavy drumming with intricate cymbal work, fretless electric bass with audible string slides, baritone male lead vocal alternating between low spoken cadence and anguished melodic shouts, brooding philosophical introspective mood, dense atmospheric production with reverb and tape saturation",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nCounting backwards from a number that I don't remember\nWatching shadows learn the shape of my own face\nEvery prophet selling something I already paid for\nEvery god I built is asking for my name\n\n[Chorus]\nTear it down\nBuild it again from the bones that bury us\nTear it down\nNothing sacred ever stays the way we wanted\n\n[Verse]\nMirror tells the truth in a language I keep losing\nRepetition is the only honest prayer\nI confessed to every angel and they all said the same thing\nYou were never lost you only learned to disappear\n\n[Bridge]\nStrip it all back to the silence underneath\nStrip it all back to the ringing in the deep\n\n[Chorus]\nTear it down\nBuild it again from the bones that bury us\nTear it down\nNothing sacred ever stays the way we wanted",
+  "generation": {
+    "bpm": 132,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  }
+}

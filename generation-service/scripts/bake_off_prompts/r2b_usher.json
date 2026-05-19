@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "round": "r2b_usher",
+    "description": "R2B artist-name diagnostic: Usher (Contemporary R&B). Artist named in caption. 1 seed. Locked 2026-05-17.",
+    "output_subdir": "r2b-usher",
+    "test_type": "artist_name",
+    "artist_display": "Usher",
+    "artist_genre": "Contemporary R&B",
+    "artist_difficulty": "Easy-Medium"
+  },
+  "captions": {
+    "ace_step": "Contemporary R&B song in the style of Usher, 92 BPM, smooth slow groove, layered synth pads, hip-hop drum programming, 808 sub-bass, male tenor with melismatic runs and falsetto, stacked harmonies, sensual yearning mood, polished urban production",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nCurtains still drawn when the sun came up\nYou were tracing letters on my chest\nSaying something I was too tired to answer\nNow I'm playing it back in my head\n\n[Pre-Chorus]\nAnd I should call but I keep waiting\nFor something I can't put into words\n\n[Chorus]\nYou're the one I left for nothing\nYou're the one I lost for nothing\nI had everything I wanted\nAnd I traded it for nothing at all\nYou're the silence in the morning\nYou're the question in the evening\nI had everything I wanted\nYeah I lost it all for nothing at all\n\n[Verse]\nI see your face in every crowded restaurant\nHear your laugh in every borrowed song\nMy pride is heavier than my pillow\nBut I'm too far gone to apologize\n\n[Chorus]\nYou're the one I left for nothing\nYou're the one I lost for nothing\nI had everything I wanted\nAnd I traded it for nothing at all",
+  "generation": {
+    "bpm": 92,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1
+    ]
+  }
+}

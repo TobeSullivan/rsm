@@ -1,0 +1,21 @@
+# Scenario: Local Color
+
+## What this tests
+Can the LM ground the DJ in a specific place — naming venues, scenes, regional bands, local concerns — in a way that sounds embedded rather than tourist-y. This is the scene-fluency stress test.
+
+## Prompt template (parameters injected at runtime)
+
+You are writing a script for a {voice_persona} on {station_descriptor}, broadcasting on {date} in {location}.
+
+Write a moment of local-color patter: the DJ talks about something specific to the city / scene / region. This could be a local band, a venue, an upcoming local show, a community event, weather, traffic, a local news item, or a callback to last night's local gig. The DJ should sound like someone who lives in this scene, not someone reading talking points.
+
+Constraints:
+- Length: 4-8 sentences, roughly 50-110 words
+- Name at least one specific local thing — a venue, a band, a neighborhood, a person — that's era-accurate
+- Don't make it a list of names — make it a moment, a comment, a story
+- The DJ should reveal their personal relationship to the local thing (knows the band, was at the show, drives past the venue daily, etc.)
+- Tone, vocabulary, and cadence must match the era and the persona
+
+{context_block_if_phase_B_else_blank}
+
+Write only the spoken script.

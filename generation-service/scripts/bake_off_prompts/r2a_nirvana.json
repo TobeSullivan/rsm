@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "round": "r2a_nirvana",
+    "description": "R2A sonic fingerprint test: Nirvana (Grunge / alt-rock, difficulty: Hard). No artist name in caption. 3 seeds. Locked 2026-05-17.",
+    "output_subdir": "r2a-nirvana",
+    "test_type": "sonic_fingerprint",
+    "artist_display": "Nirvana",
+    "artist_genre": "Grunge / alt-rock",
+    "artist_difficulty": "Hard"
+  },
+  "captions": {
+    "ace_step": "1990s grunge alt-rock, 116 BPM, loud-quiet-loud dynamic shifts, clean chorused electric guitar in verses transitioning to distorted overdriven guitar in choruses, simple powerful four-on-the-floor drumming with crash cymbal accents, distorted electric bass following the guitar root, throat-strained male vocal alternating mumbled verse with shouted melodic chorus, angsty disaffected disillusioned mood, raw lo-fi analog production with intentional roughness",
+    "diffrhythm": "",
+    "songgeneration": "",
+    "suno": ""
+  },
+  "lyrics": "[Intro]\n\n[Verse]\nBought the magazine again to feel less alone\nAll the smiling people sold me back my own face\nTelevision says my generation found a meaning\nI missed the meeting must have been asleep again\n\n[Chorus]\nHey hey hey I'm not the type to figure out\nHey hey hey I'm not the type to make it count\nHey hey hey I never asked for anything\nAnd I got all of it just the same\n\n[Verse]\nSister's voice through the apartment wall reminds me\nI forgot to call my mother on her birthday\nCounting all the people who I owe an explanation\nCounting all the explanations I won't give\n\n[Chorus]\nHey hey hey I'm not the type to figure out\nHey hey hey I'm not the type to make it count\nHey hey hey I never asked for anything\nAnd I got all of it just the same\n\n[Bridge]\nAnd I got all of it the same\nAnd I got all of it the same",
+  "generation": {
+    "bpm": 116,
+    "duration_seconds": 90.0,
+    "vocal_language": "en",
+    "instrumental": false,
+    "keyscale": "",
+    "seeds": [
+      1,
+      2,
+      3
+    ]
+  }
+}
